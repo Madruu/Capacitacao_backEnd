@@ -27,15 +27,6 @@ app.get('/pokemons/:id', (req, res) => {
     res.json(pokemons[index]);
 })
 
-//Encontra pokemons query pelo tipo
-/*app.get('/pokemons', (req, res) => {
-    const { pokemon_tipo } = req.query;
-    const results = pokemon_tipo 
-        ? pokemons.filter(pokeTipo => pokeTipo.pokemon_tipo.includes(pokemon_tipo)) 
-        : pokemons;
-    return res.json(results);
-})*/
-
 app.post('/pokemons', (req, res) => {
     let pokemon = {};
     pokemon.id = req.body.id;
@@ -80,11 +71,5 @@ app.delete('/pokemons/:id', (req, res) => {
 function buscaPokemon(id){
     return pokemons.findIndex(pokemon => pokemon.id == id);
 }
-
-/*function geraCodigo(pokedex_number){
-    return pokemons.findIndex(codigo => codigo.pokedex_number+= 1);
-}*/
-
-
 
 export default app
